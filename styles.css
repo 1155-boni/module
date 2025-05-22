@@ -1,0 +1,61 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f7f7f7;
+  padding: 20px;
+}
+
+.container {
+  max-width: 600px;
+  background: #fff;
+  padding: 20px;
+  margin: auto;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #ccc;
+}
+
+form input, form button {
+  padding: 10px;
+  margin: 5px;
+  width: calc(100% - 22px);
+}
+
+form button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  background: #eaeaea;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+li.high {
+  background-color: #d4edda;
+}
+
+.delete-btn {
+  color: red;
+  cursor: pointer;
+}
+
+#filterInput {
+  padding: 10px;
+  margin: 10px 0;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+#filterInput::placeholder {
+  color: #aaa;
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Progress Tracker</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Student Progress Tracker</h1>
+        <input type="text" id="filterInput" placeholder="Search by student name..." />
+    <form id="studentForm">
+      <input type="text" id="name" placeholder="Student Name" required />
+      <input type="text" id="subject" placeholder="Subject" required />
+      <input type="number" id="marks" placeholder="Marks (0-100)" required />
+      <button type="submit">Add Student</button>
+    </form>
+
+    <div class="summary">
+      <p><strong>Total Students:</strong> <span id="total">0</span></p>
+      <p><strong>Average Score:</strong> <span id="average">0</span></p>
+    </div>
+
+    <ul id="studentList"></ul>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
