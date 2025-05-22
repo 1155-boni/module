@@ -127,8 +127,46 @@ function updateChart(filterText = '') {
     studentList.appendChild(li);
   });
 
+  // Update student list based on filterText
   if (filterText) {
-    // Show subjects and their scores for the filtered student(s)
+    studentList.innerHTML = '';
+    students.forEach(({ name, subject, score }, index) => {
+      if (name.toLowerCase().includes(filterText.toLowerCase())) {
+        const li = document.createElement('li');
+        li.textContent = `${name} - ${subject}: ${score}`;
+
+        const editBtn = document.createElement('button');
+        editBtn.textContent = "✏️";
+        editBtn.title = "Edit";
+        editBtn.addEventListener('click', () => {
+          document.getElementById('studentName').value = name;
+          document.getElementById('studentSubject').value = subject;
+          document.getElementById('studentScore').value = score;
+          editingIndex = index;
+          form.querySelector('button').textContent = "Update Student";
+        });
+
+        const deleteBtn = document.createElement('button');
+        deleteBtn.textContent = "🗑️";
+        deleteBtn.title = "Delete";
+        deleteBtn.style.marginLeft = "10px";
+        deleteBtn.addEventListener('click', () => {
+          if (confirm(`Are you sure you want to delete ${name}'s ${subject} score?`)) {
+            students.splice(index, 1);
+            saveToLocalStorage();
+            updateChart(filterInput.value);
+          }
+        });
+
+        li.appendChild(editBtn);
+        li.appendChild(deleteBtn);
+        studentList.appendChild(li);
+      }
+    });
+  }
+
+  // Update pie chart with subjects and their scores for the filtered student(s)
+  if (filterText) {
     students.forEach(({ name, subject, score }) => {
       if (name.toLowerCase().includes(filterText.toLowerCase())) {
         if (!labels.includes(subject)) {
