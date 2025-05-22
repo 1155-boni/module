@@ -2,27 +2,26 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Student Progress Tracker</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
   <div class="container">
     <h1>Student Progress Tracker</h1>
-        <input type="text" id="filterInput" placeholder="Search by student name..." />
+
     <form id="studentForm">
-      <input type="text" id="name" placeholder="Student Name" required />
-      <input type="text" id="subject" placeholder="Subject" required />
-      <input type="number" id="marks" placeholder="Marks (0-100)" required />
+      <input type="text" id="studentName" placeholder="Student Name" required />
+      <input type="number" id="studentScore" placeholder="Score" required />
       <button type="submit">Add Student</button>
     </form>
 
-    <div class="summary">
-      <p><strong>Total Students:</strong> <span id="total">0</span></p>
-      <p><strong>Average Score:</strong> <span id="average">0</span></p>
-    </div>
-
+    <h2>Student List</h2>
     <ul id="studentList"></ul>
+
+    <h2>Score Distribution</h2>
+    <canvas id="studentScoreChart" width="400" height="400"></canvas>
   </div>
 
   <script src="script.js"></script>
