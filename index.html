@@ -13,12 +13,19 @@
 
     <form id="studentForm">
       <input type="text" id="studentName" placeholder="Student Name" required />
+      <input type="text" id="studentSubject" placeholder="Subject" required />
       <input type="number" id="studentScore" placeholder="Score" required />
       <button type="submit">Add Student</button>
     </form>
 
+    <input type="text" id="filterInput" placeholder="Filter by student name" />
+
     <h2>Student List</h2>
     <ul id="studentList"></ul>
+
+    <h3 id="studentCount">Total Students: 0</h3>
+    <h3 id="subjectCount">Total Subjects: 0</h3>
+    <h3 id="averageScore">Average Score per Student: 0</h3>
 
     <h2>Score Distribution</h2>
     <canvas id="studentScoreChart" width="400" height="400"></canvas>

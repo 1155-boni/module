@@ -59,3 +59,18 @@ li.high {
 #filterInput::placeholder {
   color: #aaa;
 }
+
+button {
+  padding: 4px 8px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+#studentList button {
+  background-color: transparent;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  margin-left: 8px;
+}
+
