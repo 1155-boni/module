@@ -1,36 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Student Progress Tracker</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acme Business</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="container">
-    <h1>Student Progress Tracker</h1>
+    <header class="hero" id="hero">
+        <div>
+            <h1>Welcome to Acme Business</h1>
+            <p>Your trusted partner for innovative solutions</p>
+            <a href="#contact" class="cta-button">Get in Touch</a>
+        </div>
+    </header>
+    <nav>
+        <div class="hamburger" onclick="toggleMenu()">☰</div>
+        <ul class="nav-menu">
+            <li><a href="#hero" onclick="smoothScroll('hero')">Home</a></li>
+            <li><a href="#about" onclick="smoothScroll('about')">About</a></li>
+            <li><a href="#services" onclick="smoothScroll('services')">Services</a></li>
+            <li><a href="#testimonials" onclick="smoothScroll('testimonials')">Testimonials</a></li>
+            <li><a href="#gallery" onclick="smoothScroll('gallery')">Gallery</a></li>
+            <li><a href="#contact" onclick="smoothScroll('contact')">Contact</a></li>
+        </ul>
+    </nav>
+    <section id="about" class="about">
+        <h2>About Us</h2>
+        <p>Acme Business is dedicated to providing top-notch services to help your business thrive. With years of experience, we deliver innovative solutions tailored to your needs.</p>
+    </section>
+    <section id="services" class="services">
+        <h2>Our Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Consulting</h3>
+                <p>Expert advice to grow your business efficiently.</p>
+            </div>
+            <div class="service-card">
+                <h3>Development</h3>
+                <p>Custom software and web solutions for your needs.</p>
+            </div>
+            <div class="service-card">
+                <h3>Marketing</h3>
+                <p>Boost your brand with our marketing strategies.</p>
+            </div>
+        </div>
+    </section>
+    <section id="testimonials" class="testimonials">
+        <h2>What Our Clients Say</h2>
+        <div class="testimonial-carousel">
+            <div class="testimonial active">
+                <p>"Acme Business transformed our operations with their innovative solutions!"</p>
+                <h4>Jane Doe, CEO</h4>
+            </div>
+            <div class="testimonial">
+                <p>"Their team provided exceptional support and expertise."</p>
+                <h4>John Smith, Founder</h4>
+            </div>
+            <div class="testimonial">
+                <p>"The best marketing strategies we’ve ever implemented!"</p>
+                <h4>Emily Johnson, CMO</h4>
+            </div>
+        </div>
+        <div class="carousel-controls">
+            <button onclick="prevTestimonial()">←</button>
+            <button onclick="nextTestimonial()">→</button>
+        </div>
+    </section>
+    <section id="gallery" class="gallery">
+        <h2>Our Work</h2>
+        <div class="gallery-grid">
+            <img src="https://source.unsplash.com/random/300x200?project1" alt="Project 1" onclick="openLightbox(this.src)">
+            <img src="https://source.unsplash.com/random/300x200?project2" alt="Project 2" onclick="openLightbox(this.src)">
+            <img src="https://source.unsplash.com/random/300x200?project3" alt="Project 3" onclick="openLightbox(this.src)">
+            <img src="https://source.unsplash.com/random/300x200?project4" alt="Project 4" onclick="openLightbox(this.src)">
+        </div>
+        <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+            <img id="lightbox-img" src="" alt="Lightbox Image">
+        </div>
+    </section>
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <form id="contactForm">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Your Email" required>
+            <textarea id="message" placeholder="Your Message" rows="5" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+        <p id="formMessage" class="form-message"></p>
+        <div class="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509374!2d144.9537353153167!3d-37.81627927975195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf0727a3b3b8b3c7!2sMelbourne%20VIC%2C%20Australia!5e0!3m2!1sen!2sus!4v1634567890123" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </section>
+    <footer>
+        <p>© 2025 Acme Business. All rights reserved.</p>
+        <div class="social-links">
+            <a href="https://twitter.com" target="_blank">Twitter</a>
+            <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+            <a href="https://facebook.com" target="_blank">Facebook</a>
+        </div>
+        <form id="newsletterForm" class="newsletter">
+            <input type="email" id="newsletterEmail" placeholder="Subscribe to our newsletter" required>
+            <button type="submit">Subscribe</button>
+        </form>
+        <p id="newsletterMessage" class="form-message"></p>
+    </footer>
+    <button id="backToTop" onclick="smoothScroll('hero')">↑ Top</button>
 
-    <form id="studentForm">
-      <input type="text" id="studentName" placeholder="Student Name" required />
-      <input type="text" id="studentSubject" placeholder="Subject" required />
-      <input type="number" id="studentScore" placeholder="Score" required />
-      <button type="submit">Add Student</button>
-    </form>
-
-    <input type="text" id="filterInput" placeholder="Filter by student name" />
-
-    <h2>Student List</h2>
-    <ul id="studentList"></ul>
-
-    <h3 id="studentCount">Total Students: 0</h3>
-    <h3 id="subjectCount">Total Subjects: 0</h3>
-    <h3 id="averageScore">Average Score per Student: 0</h3>
-
-    <h2>Score Distribution</h2>
-    <canvas id="studentScoreChart" width="400" height="400"></canvas>
-  </div>
-
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
