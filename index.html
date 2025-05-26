@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Acme Business</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome for theme toggle icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <header class="hero" id="hero">
@@ -22,8 +24,12 @@
             <li><a href="#services" onclick="smoothScroll('services')">Services</a></li>
             <li><a href="#testimonials" onclick="smoothScroll('testimonials')">Testimonials</a></li>
             <li><a href="#gallery" onclick="smoothScroll('gallery')">Gallery</a></li>
+            <li><a href="#businesses" onclick="smoothScroll('businesses')">Businesses</a></li>
             <li><a href="#contact" onclick="smoothScroll('contact')">Contact</a></li>
         </ul>
+        <div class="theme-toggle" onclick="toggleTheme()">
+            <i id="theme-icon" class="fas fa-sun"></i>
+        </div>
     </nav>
     <section id="about" class="about">
         <h2>About Us</h2>
@@ -78,6 +84,26 @@
         <div class="lightbox" id="lightbox" onclick="closeLightbox()">
             <img id="lightbox-img" src="" alt="Lightbox Image">
         </div>
+    </section>
+    <!-- New Business Listing Section -->
+    <section id="businesses" class="businesses">
+        <h2>List Your Business</h2>
+        <form id="businessForm">
+            <input type="text" id="businessName" placeholder="Business Name" required>
+            <textarea id="businessDescription" placeholder="Business Description" rows="4" required></textarea>
+            <select id="businessCategory" required>
+                <option value="" disabled selected>Select Category</option>
+                <option value="Technology">Technology</option>
+                <option value="Food & Beverage">Food & Beverage</option>
+                <option value="Retail">Retail</option>
+                <option value="Services">Services</option>
+                <option value="Other">Other</option>
+            </select>
+            <input type="email" id="businessContact" placeholder="Contact Email" required>
+            <button type="submit">Submit Business</button>
+        </form>
+        <p id="businessMessage" class="form-message"></p>
+        <div id="businessList" class="business-grid"></div>
     </section>
     <section id="contact" class="contact">
         <h2>Contact Us</h2>
