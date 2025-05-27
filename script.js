@@ -36,7 +36,7 @@ if (document.getElementById('signupForm')) {
             localStorage.setItem('users', JSON.stringify(users));
             message.style.display = 'block';
             message.style.color = 'green';
-            message.textContent = 'Sign-up successful! Redirecting to login...';
+            message.textContent = '✔ Sign-up successful! Redirecting to login...';
             setTimeout(() => window.location.href = 'login.html', 2000);
         } else {
             message.style.display = 'block';
@@ -60,12 +60,12 @@ if (document.getElementById('loginForm')) {
             localStorage.setItem('loggedInUser', JSON.stringify(user));
             message.style.display = 'block';
             message.style.color = 'green';
-            message.textContent = 'Login successful! Redirecting...';
+            message.textContent = '✅ Login successful! Redirecting...';
             setTimeout(() => window.location.href = 'index.html', 2000);
         } else {
             message.style.display = 'block';
             message.style.color = 'red';
-            message.textContent = 'Invalid email or password.';
+            message.textContent = '❌ Invalid email or password.';
         }
     });
 }
