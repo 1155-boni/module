@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Acme Business</title>
     <link rel="stylesheet" href="styles.css">
-    <!-- Font Awesome for theme toggle icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -26,13 +25,16 @@
             <li><a href="#gallery" onclick="smoothScroll('gallery')">Gallery</a></li>
             <li><a href="#businesses" onclick="smoothScroll('businesses')">Businesses</a></li>
             <li><a href="#contact" onclick="smoothScroll('contact')">Contact</a></li>
+            <li><a href="signup.html" class="nav-link" id="signup-nav">Sign Up</a></li>
+            <li><a href="login.html" class="login-nav" id="login-nav">Login</a></li>
+            <li><a href="#" class="logout-nav" id="logout-nav" onclick="logout()" style="display: none;">Logout</a></li>
         </ul>
-        <div class="theme-toggle" onclick="toggleTheme()">
+        <div class="theme-toggle" onclick="theme-toggle()">
             <i id="theme-icon" class="fas fa-sun"></i>
         </div>
     </nav>
     <section id="about" class="about">
-        <h2>About Us</h2>
+        <h1>About Us</h1>
         <p>Acme Business is dedicated to providing top-notch services to help your business thrive. With years of experience, we deliver innovative solutions tailored to your needs.</p>
     </section>
     <section id="services" class="services">
@@ -40,7 +42,7 @@
         <div class="services-grid">
             <div class="service-card">
                 <h3>Consulting</h3>
-                <p>Expert advice to grow your business efficiently.</p>
+                <p>Expert advice to help grow your business efficiently.</p>
             </div>
             <div class="service-card">
                 <h3>Development</h3>
@@ -85,7 +87,6 @@
             <img id="lightbox-img" src="" alt="Lightbox Image">
         </div>
     </section>
-    <!-- New Business Listing Section -->
     <section id="businesses" class="businesses">
         <h2>List Your Business</h2>
         <form id="businessForm">
