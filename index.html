@@ -24,17 +24,18 @@
             <li><a href="#testimonials" onclick="smoothScroll('testimonials')">Testimonials</a></li>
             <li><a href="#gallery" onclick="smoothScroll('gallery')">Gallery</a></li>
             <li><a href="#businesses" onclick="smoothScroll('businesses')">Businesses</a></li>
+            <li><a href="#jobs" onclick="smoothScroll('jobs')">Jobs</a></li>
             <li><a href="#contact" onclick="smoothScroll('contact')">Contact</a></li>
             <li><a href="signup.html" class="nav-link" id="signup-nav">Sign Up</a></li>
             <li><a href="login.html" class="login-nav" id="login-nav">Login</a></li>
             <li><a href="#" class="logout-nav" id="logout-nav" onclick="logout()" style="display: none;">Logout</a></li>
         </ul>
-        <div class="theme-toggle" onclick="theme-toggle()">
+        <div class="theme-toggle" onclick="toggleTheme()">
             <i id="theme-icon" class="fas fa-sun"></i>
         </div>
     </nav>
     <section id="about" class="about">
-        <h1>About Us</h1>
+        <h2>About Us</h2>
         <p>Acme Business is dedicated to providing top-notch services to help your business thrive. With years of experience, we deliver innovative solutions tailored to your needs.</p>
     </section>
     <section id="services" class="services">
@@ -42,7 +43,7 @@
         <div class="services-grid">
             <div class="service-card">
                 <h3>Consulting</h3>
-                <p>Expert advice to help grow your business efficiently.</p>
+                <p>Expert advice to grow your business efficiently.</p>
             </div>
             <div class="service-card">
                 <h3>Development</h3>
@@ -59,7 +60,7 @@
         <div class="testimonial-carousel">
             <div class="testimonial active">
                 <p>"Acme Business transformed our operations with their innovative solutions!"</p>
-                <h4>Jane Doe, CEO</h4>
+                <h4>Boni Bolo, CEO</h4>
             </div>
             <div class="testimonial">
                 <p>"Their team provided exceptional support and expertise."</p>
@@ -87,9 +88,11 @@
             <img id="lightbox-img" src="" alt="Lightbox Image">
         </div>
     </section>
+    <!-- List Your Business Section -->
     <section id="businesses" class="businesses">
         <h2>List Your Business</h2>
-        <form id="businessForm">
+        <p id="loginPrompt" class="form-message" style="display: none;">Please <a href="login.html">login</a> to add a business.</p>
+        <form id="businessForm" style="display: block;">
             <input type="text" id="businessName" placeholder="Business Name" required>
             <textarea id="businessDescription" placeholder="Business Description" rows="4" required></textarea>
             <select id="businessCategory" required>
@@ -104,8 +107,70 @@
             <button type="submit">Submit Business</button>
         </form>
         <p id="businessMessage" class="form-message"></p>
-        <div id="businessList" class="business-grid"></div>
+        <ol id="businessList" class="business-list"></ol>
     </section>
+    <!-- Job Opportunities Section -->
+    <section id="jobs" class="jobs">
+        <h2>Job Opportunities</h2>
+        <p id="jobLoginPrompt" class="form-message" style="display: none;">Please <a href="login.html">login</a> to post a job.</p>
+        <form id="jobForm" style="display: block;">
+            <input type="text" id="jobTitle" placeholder="Job Title" required>
+            <textarea id="jobDescription" placeholder="Job Description" rows="4" required></textarea>
+            <select id="jobCategory" required>
+                <option value="" disabled selected>Select Category</option>
+                <option value="Technology">Technology</option>
+                <option value="Healthcare">Healthcare</option>
+                <option value="Education">Education</option>
+                <option value="Retail">Retail</option>
+                <option value="Other">Other</option>
+            </select>
+            <input type="email" id="jobContact" placeholder="Contact Email" required>
+            <button type="submit">Post Job</button>
+        </form>
+        <p id="jobMessage" class="form-message"></p>
+        <ol id="jobList" class="job-list"></ol>
+    </section>
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeBookingModal()">×</span>
+            <h3>Book Job: <span id="bookingJobTitle"></span></h3>
+            <form id="bookingForm">
+                <input type="text" id="bookingName" placeholder="Your Name" required>
+                <input type="email" id="bookingEmail" placeholder="Your Email" required>
+                <textarea id="bookingMessage" placeholder="Additional Information" rows="4"></textarea>
+                <input type="hidden" id="bookingJobId">
+                <button type="submit">Submit Booking</button>
+            </form>
+            <p id="bookingMessage" class="form-message"></p>
+        </div>
+    </div>
+    <!-- Edit Modal -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeEditModal()">×</span>
+            <h3 id="editModalTitle">Edit Item</h3>
+            <form id="editForm">
+                <input type="text" id="editName" placeholder="Name/Title" required>
+                <textarea id="editDescription" placeholder="Description" rows="4" required></textarea>
+                <select id="editCategory" required>
+                    <option value="" disabled>Select Category</option>
+                    <option value="Technology">Technology</option>
+                    <option value="Food & Beverage">Food & Beverage</option>
+                    <option value="Retail">Retail</option>
+                    <option value="Services">Services</option>
+                    <option value="Healthcare">Healthcare</option>
+                    <option value="Education">Education</option>
+                    <option value="Other">Other</option>
+                </select>
+                <input type="email" id="editContact" placeholder="Contact Email" required>
+                <input type="hidden" id="editId">
+                <input type="hidden" id="editType">
+                <button type="submit">Save Changes</button>
+            </form>
+            <p id="editMessage" class="form-message"></p>
+        </div>
+    </div>
     <section id="contact" class="contact">
         <h2>Contact Us</h2>
         <form id="contactForm">
@@ -116,17 +181,16 @@
         </form>
         <p id="formMessage" class="form-message"></p>
         <div class="map">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509374!2d144.9537353153167!3d-37.81627927975195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf0727a3b3b8b3c7!2sMelbourne%20VIC%2C%20Australia!5e0!3m2!1sen!2sus!4v1634567890123" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1495.8086159743325!2d36.768942717468626!3d-1.2798432740375194!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f19f7fd53fbfd%3A0x40b8907600d98711!2sLavington%20Mall!5e1!3m2!1sen!2ske!4v1748341525877!5m2!1sen!2ske" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </section>
     <footer>
         <p>© 2025 Acme Business. All rights reserved.</p>
         <div class="social-links">
-            <a href="https://www.linkedin.com/in/diet-boni-11b144365/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+               <a href="https://www.linkedin.com/in/diet-boni-11b144365/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
                     <a href="https://github.com/1155-boni/1155-boni" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
                     <a href="https://x.com/BoniPuka" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
                     <a href="https://www.instagram.com/his_gr.ac3/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.instagram.com/his_gr.ac3/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
         </div>
         <form id="newsletterForm" class="newsletter">
             <input type="email" id="newsletterEmail" placeholder="Subscribe to our newsletter" required>
