@@ -612,6 +612,7 @@ style.textContent = `
     }
     .button-group button {
         margin-right: 8px;
+        
     }
     .button-group .book-now-button {
         padding: 6px 12px;
@@ -642,6 +643,7 @@ style.textContent = `
     #theme-icon.fa-moon {
         color: #3498db; /* Soft blue for moon */
     }
+        
 `;
 document.head.appendChild(style);
 // [Previous theme toggle, hamburger menu, smooth scroll, back to top, testimonial carousel, gallery lightbox remain unchanged]
@@ -681,111 +683,20 @@ const translations = {
         modal: { editBusiness: "Editar Empresa", editJob: "Editar Trabajo", applyFor: "Solicitar Trabajo: ", save: "Guardar", cancel: "Cancelar", submit: "Enviar Solicitud", profile: "Perfil de Usuario" }
     },
     sw: {
-    "title": "Biashara ya Acme",
-    "signup": {
-        "title": "Jisajili - Biashara ya Acme",
-        "header": "Jisajili",
-        "button": "Jisajili",
-        "loginPrompt": "Je, una akaunti tayari?",
-        "loginLink": "Ingia hapa"
-    },
-    "login": {
-        "title": "Ingia - Saraka ya Biashara",
-        "header": "Ingia",
-        "button": "Ingia",
-        "signupPrompt": "Je, huna akaunti?",
-        "signupLink": "Jisajili hapa"
-    },
-    "nav": {
-        "home": "Nyumbani",
-        "about": "Kuhusu",
-        "services": "Huduma",
-        "testimonials": "Heshima",
-        "gallery": "Matangazo",
-        "businesses": "Biashara",
-        "jobs": "Kazi",
-        "contact": "Wasiliana",
-        "signup": "Jisajili",
-        "login": "Ingia",
-        "logout": "Toka",
-        "profile": "Profaili"
-    },
-    "hero": {
-        "title": "Karibu katika Biashara ya Acme",
-        "subtitle": "Pata biashara, huduma, na fursa za kazi karibu nawe!",
-        "cta": "Anza"
-    },
-    "about": {
-        "title": "Kuhusu Sisi",
-        "description": "Tunawasilisha watu na biashara za ndani na fursa za kazi. Iwe unatafuta huduma au kazi, tumekujia!"
-    },
-    "services": {
-        "title": "Huduma Zetu",
-        "listing": "Orodha za Biashara",
-        "listingDesc": "Orisha biashara yako ili kufikia wateja wengi zaidi.",
-        "jobs": "Fursa za Kazi",
-        "jobsDesc": "Chapisha au pata kazi katika eneo lako.",
-        "support": "Msaada wa Jamii",
-        "supportDesc": "Ungana na wataalamu wa ndani na rasilimali."
-    },
-    "testimonials": {
-        "title": "Heshima",
-        "test1": '"Jukwaa hili lininisaidia kupata kazi bora kwa siku chache tu!"',
-        "author1": "- Boni Bolo",
-        "test2": '"Kuorodhesha biashara yangu hapa kumetuletea wateja wengi wapya."',
-        "author2": "- James Morris",
-        "test3": '"Njia nzuri ya kuungana na huduma za ndani na wataalamu."',
-        "author3": "- Promsie Hazel",
-        "prev": "Ya Awali",
-        "next": "Inayofuata"
-    },
-    "gallery": {
-        "title": "Matangazo"
-    },
-    "businesses": {
-        "title": "Orisha Biashara Yako",
-        "loginPrompt": "Tafadhali <a href='login.html'>ingia</a> ili kuorodhesha biashara.",
-        "selectCategory": "Chagua Jamii",
-        "category": {
-            "retail": "Rejareja",
-            "service": "Huduma",
-            "tech": "Teknolojia"
-        },
-        "add": "Ongeza Biashara",
-        "allCategories": "Jamii Zote"
-    },
-    "jobs": {
-        "title": "Fursa za Kazi",
-        "loginPrompt": "Tafadhali <a href='login.html'>ingia</a> ili kuchapisha kazi.",
-        "selectCategory": "Chagua Jamii",
-        "category": {
-            "full": "Muda Mzima",
-            "part": "Muda wa Nusu",
-            "freelance": "Kazi ya Kujitegemea"
-        },
-        "post": "Chapisha Kazi",
-        "allCategories": "Jamii Zote"
-    },
-    "contact": {
-        "title": "Wasiliana Nasi",
-        "send": "Tuma Ujumbe"
-    },
-    "footer": {
-        "copyright": "© 2025 Saraka ya Biashara. Haki zote zimehifadhiwa.",
-        "facebook": "Facebook",
-        "twitter": "Twitter",
-        "instagram": "Instagram",
-        "subscribe": "Jisajili"
-    },
-    "modal": {
-        "editBusiness": "Hariri Biashara",
-        "editJob": "Hariri Kazi",
-        "applyFor": "Omba Kazi: ",
-        "save": "Hifadhi",
-        "cancel": "Futa",
-        "submit": "Wasilisha Maombi",
-        "profile": "Profaili ya Mtumiaji"
-    }
+    title: "Biashara ya Acme",
+    signup: {title: "Jisajili - Biashara ya Acme","header": "Jisajili","button": "Jisajili","loginPrompt": "Je, una akaunti tayari?","loginLink": "Ingia hapa"},
+    "login": {"title": "Ingia - Saraka ya Biashara","header": "Ingia","button": "Ingia","signupPrompt": "Je, huna akaunti?","signupLink": "Jisajili hapa"},
+    "nav": {"home": "Nyumbani","about": "Kuhusu","services": "Huduma","testimonials": "Heshima","gallery": "Matangazo","businesses": "Biashara","jobs": "Kazi","contact": "Wasiliana","signup": "Jisajili","login": "Ingia","logout": "Toka","profile": "Profaili"},
+    "hero": {"title": "Karibu katika Biashara ya Acme","subtitle": "Pata biashara, huduma, na fursa za kazi karibu nawe!","cta": "Anza"},
+    "about": {"title": "Kuhusu Sisi","description": "Tunawasilisha watu na biashara za ndani na fursa za kazi. Iwe unatafuta huduma au kazi, tumekujia!"},
+    "services": {"title": "Huduma Zetu","listing": "Orodha za Biashara","listingDesc": "Orisha biashara yako ili kufikia wateja wengi zaidi.","jobs": "Fursa za Kazi","jobsDesc": "Chapisha au pata kazi katika eneo lako.","support": "Msaada wa Jamii","supportDesc": "Ungana na wataalamu wa ndani na rasilimali."},
+    "testimonials": {"title": "Heshima","test1": '"Jukwaa hili lininisaidia kupata kazi bora kwa siku chache tu!"',"author1": "- Boni Bolo","test2": '"Kuorodhesha biashara yangu hapa kumetuletea wateja wengi wapya."',"author2": "- James Morris","test3": '"Njia nzuri ya kuungana na huduma za ndani na wataalamu."',"author3": "- Promsie Hazel","prev": "Ya Awali","next": "Inayofuata"},
+    "gallery": {"title": "Matangazo"},
+    "businesses": {"title": "Orisha Biashara Yako","loginPrompt": "Tafadhali <a href='login.html'>ingia</a> ili kuorodhesha biashara.","selectCategory": "Chagua Jamii","category": {"retail": "Rejareja","service": "Huduma","tech": "Teknolojia"},"add": "Ongeza Biashara","allCategories": "Jamii Zote"},
+    "jobs": {"title": "Fursa za Kazi","loginPrompt": "Tafadhali <a href='login.html'>ingia</a> ili kuchapisha kazi.","selectCategory": "Chagua Jamii","category": {"full": "Muda Mzima","part": "Muda wa Nusu","freelance": "Kazi ya Kujitegemea"},"post": "Chapisha Kazi","allCategories": "Jamii Zote"},
+    "contact": {"title": "Wasiliana Nasi","send": "Tuma Ujumbe"},
+    "footer": {"copyright": "© 2025 Saraka ya Biashara. Haki zote zimehifadhiwa.","facebook": "Facebook","twitter": "Twitter","instagram": "Instagram","subscribe": "Jisajili"},
+    "modal": {"editBusiness": "Hariri Biashara","editJob": "Hariri Kazi","applyFor": "Omba Kazi: ","save": "Hifadhi","cancel": "Futa","submit": "Wasilisha Maombi","profile": "Profaili ya Mtumiaji"}
 },
 fr: {
     "title": "Acme Business",
