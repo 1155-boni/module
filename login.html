@@ -3,31 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Acme Business</title>
+    <title data-i18n="login.title">Login - Business Directory</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <nav>
-        <div class="hamburger" onclick="toggleMenu()">☰</div>
+        <span class="theme-toggle" id="theme-icon" onclick="toggleTheme()"><i class="fas fa-sun"></i></span>
+        <span class="language-switcher">
+            <select id="languageSelect" onchange="changeLanguage()">
+                <option value="en">English</option>
+                <option value="es">Español</option>
+            </select>
+        </span>
+        <span class="hamburger" onclick="toggleMenu()">☰</span>
         <ul class="nav-menu">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="signup.html">Sign Up</a></li>
+            <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+            <li><a href="index.html#about" data-i18n="nav.about">About</a></li>
+            <li><a href="index.html#services" data-i18n="nav.services">Services</a></li>
+            <li><a href="index.html#testimonials" data-i18n="nav.testimonials">Testimonials</a></li>
+            <li><a href="index.html#gallery" data-i18n="nav.gallery">Gallery</a></li>
+            <li><a href="index.html#businesses" data-i18n="nav.businesses">Businesses</a></li>
+            <li><a href="index.html#jobs" data-i18n="nav.jobs">Jobs</a></li>
+            <li><a href="index.html#contact" data-i18n="nav.contact">Contact</a></li>
+            <li id="signup-nav"><a href="signup.html" data-i18n="nav.signup">Sign Up</a></li>
+            <li id="login-nav"><a href="login.html" data-i18n="nav.login">Login</a></li>
+            <li id="logout-nav" style="display: none;"><a href="#" onclick="logout()" data-i18n="nav.logout">Logout</a></li>
         </ul>
-        <div class="theme-toggle" onclick="toggleTheme()">
-            <i id="theme-icon" class="fas fa-sun"></i>
-        </div>
     </nav>
+
     <section class="auth">
-        <h2>Login</h2>
+        <h2 data-i18n="login.header">Login</h2>
         <form id="loginForm">
-            <input type="email" id="email" placeholder="Email" required>
-            <input type="password" id="password" placeholder="Password" required>
-            <button type="submit">Login</button>
+            <input type="email" id="loginEmail" placeholder="Email" required>
+            <input type="password" id="loginPassword" placeholder="Password" required>
+            <button type="submit" data-i18n="login.button">Login</button>
         </form>
-        <p id="loginMessage" class="form-message"></p>
-        <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
+        <p data-i18n="login.signupPrompt">Don't have an account? <a href="signup.html" data-i18n="login.signupLink">Sign up here</a></p>
+        <div id="loginMessage" class="form-message"></div>
     </section>
+
+    <footer>
+        <p data-i18n="footer.copyright">© 2025 Business Directory. All rights reserved.</p>
+        <div class="social-links">
+           <a href="https://www.linkedin.com/in/diet-boni-11b144365/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+           <a href="https://github.com/1155-boni/1155-boni" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+           <a href="https://x.com/BoniPuka" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+           <a href="https://www.instagram.com/his_gr.ac3/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+        <div class="newsletter">
+            <form id="newsletterForm">
+                <input type="email" id="newsletterEmail" placeholder="Subscribe to our newsletter" required>
+                <button type="submit" data-i18n="footer.subscribe">Subscribe</button>
+            </form>
+        </div>
+        <div id="newsletterMessage" class="form-message"></div>
+    </footer>
+
     <script src="script.js"></script>
 </body>
 </html>

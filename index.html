@@ -3,202 +3,286 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Acme Business</title>
+    <title data-i18n="title">Business Directory</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <nav>
+        <span class="theme-toggle" id="theme-icon" onclick="toggleTheme()"><i class="fas fa-sun"></i></span>
+        <span class="language-switcher">
+            <select id="languageSelect" onchange="changeLanguage()">
+                <option value="en">English</option>
+                <option value="es">Español</option>
+                <option value="fr">Français</option>
+                <option value="sw">Kiswahili</option>
+            </select>
+        </span>
+        <span class="hamburger" onclick="toggleMenu()">☰</span>
+        <ul class="nav-menu">
+            <li><a href="#hero" onclick="smoothScroll('hero')" data-i18n="nav.home">Home</a></li>
+            <li><a href="#about" onclick="smoothScroll('about')" data-i18n="nav.about">About</a></li>
+            <li><a href="#services" onclick="smoothScroll('services')" data-i18n="nav.services">Services</a></li>
+            <li><a href="#testimonials" onclick="smoothScroll('testimonials')" data-i18n="nav.testimonials">Testimonials</a></li>
+            <li><a href="#gallery" onclick="smoothScroll('gallery')" data-i18n="nav.gallery">Gallery</a></li>
+            <li><a href="#businesses" onclick="smoothScroll('businesses')" data-i18n="nav.businesses">Businesses</a></li>
+            <li><a href="#jobs" onclick="smoothScroll('jobs')" data-i18n="nav.jobs">Jobs</a></li>
+            <li><a href="#contact" onclick="smoothScroll('contact')" data-i18n="nav.contact">Contact</a></li>
+            <li id="signup-nav"><a href="signup.html" data-i18n="nav.signup">Sign Up</a></li>
+            <li id="login-nav"><a href="login.html" data-i18n="nav.login">Login</a></li>
+            <li id="logout-nav" style="display: none;"><a href="#" onclick="logout()" data-i18n="nav.logout">Logout</a></li>
+            <li id="profile-nav" style="display: none;"><a href="#" onclick="openProfileModal()" data-i18n="nav.profile">Profile</a></li>
+        </ul>
+    </nav>
+
     <header class="hero" id="hero">
         <div>
-            <h1>Welcome to Acme Business</h1>
-            <p>Your trusted partner for innovative solutions</p>
-            <a href="#contact" class="cta-button">Get in Touch</a>
+            <h1 data-i18n="hero.title" >Welcome to Acme Business</h1>
+            <p data-i18n="hero.subtitle">Find businesses, services, and job opportunities near you!</p>
+            <a href="#businesses" class="cta-button" onclick="smoothScroll('businesses')" data-i18n="hero.cta">Get Started</a>
         </div>
     </header>
-    <nav>
-        <div class="hamburger" onclick="toggleMenu()">☰</div>
-        <ul class="nav-menu">
-            <li><a href="#hero" onclick="smoothScroll('hero')">Home</a></li>
-            <li><a href="#about" onclick="smoothScroll('about')">About</a></li>
-            <li><a href="#services" onclick="smoothScroll('services')">Services</a></li>
-            <li><a href="#testimonials" onclick="smoothScroll('testimonials')">Testimonials</a></li>
-            <li><a href="#gallery" onclick="smoothScroll('gallery')">Gallery</a></li>
-            <li><a href="#businesses" onclick="smoothScroll('businesses')">Businesses</a></li>
-            <li><a href="#jobs" onclick="smoothScroll('jobs')">Jobs</a></li>
-            <li><a href="#contact" onclick="smoothScroll('contact')">Contact</a></li>
-            <li><a href="signup.html" class="nav-link" id="signup-nav">Sign Up</a></li>
-            <li><a href="login.html" class="login-nav" id="login-nav">Login</a></li>
-            <li><a href="#" class="logout-nav" id="logout-nav" onclick="logout()" style="display: none;">Logout</a></li>
-        </ul>
-        <div class="theme-toggle" onclick="toggleTheme()">
-            <i id="theme-icon" class="fas fa-sun"></i>
-        </div>
-    </nav>
-    <section id="about" class="about">
-        <h2>About Us</h2>
-        <p>Acme Business is dedicated to providing top-notch services to help your business thrive. With years of experience, we deliver innovative solutions tailored to your needs.</p>
+
+    <section class="about" id="about">
+        <h2 data-i18n="about.title">About Us</h2>
+        <p data-i18n="about.description">We connect people with local businesses and job opportunities. Whether you're looking for a service or a career, we've got you covered!</p>
     </section>
-    <section id="services" class="services">
-        <h2>Our Services</h2>
+
+    <section class="services" id="services">
+        <h2 data-i18n="services.title">Our Services</h2>
         <div class="services-grid">
             <div class="service-card">
-                <h3>Consulting</h3>
-                <p>Expert advice to grow your business efficiently.</p>
+                <h3 data-i18n="services.listing">Business Listings</h3>
+                <p data-i18n="services.listingDesc">List your business to reach more customers.</p>
             </div>
             <div class="service-card">
-                <h3>Development</h3>
-                <p>Custom software and web solutions for your needs.</p>
+                <h3 data-i18n="services.jobs">Job Opportunities</h3>
+                <p data-i18n="services.jobsDesc">Post or find jobs in your area.</p>
             </div>
             <div class="service-card">
-                <h3>Marketing</h3>
-                <p>Boost your brand with our marketing strategies.</p>
+                <h3 data-i18n="services.support">Community Support</h3>
+                <p data-i18n="services.supportDesc">Connect with local professionals and resources.</p>
             </div>
         </div>
     </section>
-    <section id="testimonials" class="testimonials">
-        <h2>What Our Clients Say</h2>
+
+    <section class="testimonials" id="testimonials">
+        <h2 data-i18n="testimonials.title">Testimonials</h2>
         <div class="testimonial-carousel">
             <div class="testimonial active">
-                <p>"Acme Business transformed our operations with their innovative solutions!"</p>
-                <h4>Boni Bolo, CEO</h4>
+                <p data-i18n="testimonials.test1">"This platform helped me find the perfect job in just a few days!"</p>
+                <h4 data-i18n="testimonials.author1">- Boni Bolo</h4>
             </div>
             <div class="testimonial">
-                <p>"Their team provided exceptional support and expertise."</p>
-                <h4>John Smith, Founder</h4>
+                <p data-i18n="testimonials.test2">"Listing my business here brought in so many new customers."</p>
+                <h4 data-i18n="testimonials.author2">- James Morris</h4>
             </div>
             <div class="testimonial">
-                <p>"The best marketing strategies we’ve ever implemented!"</p>
-                <h4>Emily Johnson, CMO</h4>
+                <p data-i18n="testimonials.test3">"A great way to connect with local services and professionals."</p>
+                <h4 data-i18n="testimonials.author3">- Jeniffer Hazel</h4>
             </div>
-        </div>
-        <div class="carousel-controls">
-            <button onclick="prevTestimonial()">←</button>
-            <button onclick="nextTestimonial()">→</button>
+            <div class="carousel-controls">
+                <button onclick="prevTestimonial()" data-i18n="testimonials.prev">⬅</button>
+                <button onclick="nextTestimonial()" data-i18n="testimonials.next">➡</button>
+            </div>
         </div>
     </section>
-    <section id="gallery" class="gallery">
-        <h2>Our Work</h2>
+
+    <section class="gallery" id="gallery">
+        <h2 data-i18n="gallery.title">Gallery</h2>
         <div class="gallery-grid">
-            <img src="https://source.unsplash.com/random/300x200?project1" alt="Project 1" onclick="openLightbox(this.src)">
-            <img src="https://source.unsplash.com/random/300x200?project2" alt="Project 2" onclick="openLightbox(this.src)">
-            <img src="https://source.unsplash.com/random/300x200?project3" alt="Project 3" onclick="openLightbox(this.src)">
-            <img src="https://source.unsplash.com/random/300x200?project4" alt="Project 4" onclick="openLightbox(this.src)">
+            <img src="images (1).jfif" onclick="openLightbox(this.src)" alt="Business">
+            <img src="office-1-1.jpg" onclick="openLightbox(this.src)" alt="Offices">
+            <img src="diversity-portrait-happy-colleagues-smile-260nw-2312975421.webp" onclick="openLightbox(this.src)" alt="Team 1">
+            <img src="download (1).jfif" onclick="openLightbox(this.src)" alt="Business">
         </div>
         <div class="lightbox" id="lightbox" onclick="closeLightbox()">
-            <img id="lightbox-img" src="" alt="Lightbox Image">
+            <img id="lightbox-img" src="">
         </div>
     </section>
-    <!-- List Your Business Section -->
-    <section id="businesses" class="businesses">
-        <h2>List Your Business</h2>
-        <p id="loginPrompt" class="form-message" style="display: none;">Please <a href="login.html">login</a> to add a business.</p>
-        <form id="businessForm" style="display: block;">
-            <input type="text" id="businessName" placeholder="Business Name" required>
-            <textarea id="businessDescription" placeholder="Business Description" rows="4" required></textarea>
-            <select id="businessCategory" required>
-                <option value="" disabled selected>Select Category</option>
-                <option value="Technology">Technology</option>
-                <option value="Food & Beverage">Food & Beverage</option>
-                <option value="Retail">Retail</option>
-                <option value="Services">Services</option>
-                <option value="Other">Other</option>
-            </select>
-            <input type="email" id="businessContact" placeholder="Contact Email" required>
-            <button type="submit">Submit Business</button>
+
+    <section class="businesses" id="businesses">
+        <h2 data-i18n="businesses.title">List Your Business</h2>
+        <div id="loginPrompt" style="display: none; text-align: center;">
+            <p data-i18n="businesses.loginPrompt">Please <a href="login.html">log in</a> to list a business.</p>
+        </div>
+        <form id="businessForm" style="display: none;">
+            <div class="form-grid">
+                <div class="form-left">
+                    <input type="text" id="businessName" placeholder="Business Name" required>
+                    <select id="businessCategory" required>
+                        <option value="" data-i18n="businesses.selectCategory">Select Category</option>
+                        <option value="Retail" data-i18n="businesses.category.retail">Retail</option>
+                        <option value="Service" data-i18n="businesses.category.service">Service</option>
+                        <option value="Technology" data-i18n="businesses.category.tech">Technology</option>
+                    </select>
+                    <input type="text" id="businessContact" placeholder="Contact Info" required>
+                </div>
+                <div class="form-right">
+                    <textarea id="businessDescription" placeholder="Description" required></textarea>
+                </div>
+            </div>
+            <button type="submit" data-i18n="businesses.add">Add Business</button>
         </form>
-        <p id="businessMessage" class="form-message"></p>
-        <ol id="businessList" class="business-list"></ol>
-    </section>
-    <!-- Job Opportunities Section -->
-    <section id="jobs" class="jobs">
-        <h2>Job Opportunities</h2>
-        <p id="jobLoginPrompt" class="form-message" style="display: none;">Please <a href="login.html">login</a> to post a job.</p>
-        <form id="jobForm" style="display: block;">
-            <input type="text" id="jobTitle" placeholder="Job Title" required>
-            <textarea id="jobDescription" placeholder="Job Description" rows="4" required></textarea>
-            <select id="jobCategory" required>
-                <option value="" disabled selected>Select Category</option>
-                <option value="Technology">Technology</option>
-                <option value="Healthcare">Healthcare</option>
-                <option value="Education">Education</option>
-                <option value="Retail">Retail</option>
-                <option value="Other">Other</option>
+        <div id="businessSearch">
+            <input type="text" id="businessSearchInput" placeholder="Search businesses..." oninput="filterBusinesses()">
+            <select id="businessFilterCategory" onchange="filterBusinesses()">
+                <option value="" data-i18n="businesses.allCategories">All Categories</option>
+                <option value="Retail" data-i18n="businesses.category.retail">Retail</option>
+                <option value="Service" data-i18n="businesses.category.service">Service</option>
+                <option value="Technology" data-i18n="businesses.category.tech">Technology</option>
             </select>
-            <input type="email" id="jobContact" placeholder="Contact Email" required>
-            <button type="submit">Post Job</button>
-        </form>
-        <p id="jobMessage" class="form-message"></p>
-        <ol id="jobList" class="job-list"></ol>
+        </div>
+        <div id="businessMessage" class="form-message"></div>
+        <ul class="business-list" id="businessList"></ul>
     </section>
-    <!-- Booking Modal -->
-    <div id="bookingModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeBookingModal()">×</span>
-            <h3>Book Job: <span id="bookingJobTitle"></span></h3>
-            <form id="bookingForm">
-                <input type="text" id="bookingName" placeholder="Your Name" required>
-                <input type="email" id="bookingEmail" placeholder="Your Email" required>
-                <textarea id="bookingMessage" placeholder="Additional Information" rows="4"></textarea>
-                <input type="hidden" id="bookingJobId">
-                <button type="submit">Submit Booking</button>
-            </form>
-            <p id="bookingMessage" class="form-message"></p>
+
+    <section class="jobs" id="jobs">
+        <h2 data-i18n="jobs.title">Job Opportunities</h2>
+        <div id="jobLoginPrompt" style="display: none; text-align: center;">
+            <p data-i18n="jobs.loginPrompt">Please <a href="http://127.0.0.1:5500/login.html">log in</a> to post a job.</p>
         </div>
-    </div>
-    <!-- Edit Modal -->
-    <div id="editModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeEditModal()">×</span>
-            <h3 id="editModalTitle">Edit Item</h3>
-            <form id="editForm">
-                <input type="text" id="editName" placeholder="Name/Title" required>
-                <textarea id="editDescription" placeholder="Description" rows="4" required></textarea>
-                <select id="editCategory" required>
-                    <option value="" disabled>Select Category</option>
-                    <option value="Technology">Technology</option>
-                    <option value="Food & Beverage">Food & Beverage</option>
-                    <option value="Retail">Retail</option>
-                    <option value="Services">Services</option>
-                    <option value="Healthcare">Healthcare</option>
-                    <option value="Education">Education</option>
-                    <option value="Other">Other</option>
-                </select>
-                <input type="email" id="editContact" placeholder="Contact Email" required>
-                <input type="hidden" id="editId">
-                <input type="hidden" id="editType">
-                <button type="submit">Save Changes</button>
-            </form>
-            <p id="editMessage" class="form-message"></p>
+        <form id="jobForm" style="display: none;">
+            <div class="form-grid">
+                <div class="form-left">
+                    <input type="text" id="jobTitle" placeholder="Job Title" required>
+                    <select id="jobCategory" required>
+                        <option value="" data-i18n="jobs.selectCategory">Select Category</option>
+                        <option value="Full-Time" data-i18n="jobs.category.full">Full-Time</option>
+                        <option value="Part-Time" data-i18n="jobs.category.part">Part-Time</option>
+                        <option value="Freelance" data-i18n="jobs.category.freelance">Freelance</option>
+                    </select>
+                    <input type="text" id="jobContact" placeholder="Contact Info" required>
+                    <input type="number" id="jobSalary" placeholder="Salary (e.g., 50000)" step="1000" min="0" required>
+                </div>
+                <div class="form-right">
+                    <textarea id="jobDescription" placeholder="Description" required></textarea>
+                </div>
+            </div>
+            <button type="submit" data-i18n="jobs.post">Post Job</button>
+        </form>
+        <div id="jobSearch">
+            <input type="text" id="jobSearchInput" placeholder="Search jobs..." oninput="filterJobs()">
+            <select id="jobFilterCategory" onchange="filterJobs()">
+                <option value="" data-i18n="jobs.allCategories">All Categories</option>
+                <option value="Full-Time" data-i18n="jobs.category.full">Full-Time</option>
+                <option value="Part-Time" data-i18n="jobs.category.part">Part-Time</option>
+                <option value="Freelance" data-i18n="jobs.category.freelance">Freelance</option>
+            </select>
         </div>
-    </div>
-    <section id="contact" class="contact">
-        <h2>Contact Us</h2>
+        <div id="jobMessage" class="form-message"></div>
+        <ul class="job-list" id="jobList"></ul>
+    </section>
+
+    <section class="contact" id="contact">
+        <h2 data-i18n="contact.title">Contact Us</h2>
         <form id="contactForm">
             <input type="text" id="name" placeholder="Your Name" required>
             <input type="email" id="email" placeholder="Your Email" required>
-            <textarea id="message" placeholder="Your Message" rows="5" required></textarea>
-            <button type="submit">Send Message</button>
+            <textarea id="message" placeholder="Your Message" required></textarea>
+            <button type="submit" data-i18n="contact.send">Send Message</button>
         </form>
-        <p id="formMessage" class="form-message"></p>
+        <div id="formMessage" class="form-message"></div>
         <div class="map">
-           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1495.8086159743325!2d36.768942717468626!3d-1.2798432740375194!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f19f7fd53fbfd%3A0x40b8907600d98711!2sLavington%20Mall!5e1!3m2!1sen!2ske!4v1748341525877!5m2!1sen!2ske" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2991.6171005646806!2d36.767652574965744!3d-1.2799558987078745!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f19f7fd53fbfd%3A0x40b8907600d98711!2sLavington%20Mall!5e1!3m2!1sen!2ske!4v1748420262424!5m2!1sen!2ske" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </section>
+
     <footer>
-        <p>© 2025 Acme Business. All rights reserved.</p>
+        <p data-i18n="footer.copyright">© 2025 Business Directory. All rights reserved.</p>
         <div class="social-links">
-               <a href="https://www.linkedin.com/in/diet-boni-11b144365/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://github.com/1155-boni/1155-boni" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                    <a href="https://x.com/BoniPuka" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="https://www.instagram.com/his_gr.ac3/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+             <a href="https://www.linkedin.com/in/diet-boni-11b144365/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+             <a href="https://github.com/1155-boni/1155-boni" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+             <a href="https://x.com/BoniPuka" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+             <a href="https://www.instagram.com/his_gr.ac3/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
         </div>
-        <form id="newsletterForm" class="newsletter">
-            <input type="email" id="newsletterEmail" placeholder="Subscribe to our newsletter" required>
-            <button type="submit">Subscribe</button>
-        </form>
-        <p id="newsletterMessage" class="form-message"></p>
+        <div class="newsletter">
+            <form id="newsletterForm">
+                <input type="email" id="newsletterEmail" placeholder="Subscribe to our newsletter" required>
+                <button type="submit" data-i18n="footer.subscribe">Subscribe</button>
+            </form>
+        </div>
+        <div id="newsletterMessage" class="form-message"></div>
     </footer>
-    <button id="backToTop" onclick="smoothScroll('hero')">↑ Top</button>
+
+    <button id="backToTop" onclick="smoothScroll('hero')">↑</button>
+
+    <!-- Edit Business Modal -->
+    <div id="editBusinessModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeEditBusinessModal()">×</span>
+            <h3 data-i18n="modal.editBusiness">Edit Business</h3>
+            <form id="editBusinessForm">
+                <input type="hidden" id="editBusinessId">
+                <input type="text" id="editBusinessName" placeholder="Business Name" required>
+                <textarea id="editBusinessDescription" placeholder="Description" required></textarea>
+                <select id="editBusinessCategory" required>
+                    <option value="" data-i18n="businesses.selectCategory">Select Category</option>
+                    <option value="Retail" data-i18n="businesses.category.retail">Retail</option>
+                    <option value="Service" data-i18n="businesses.category.service">Service</option>
+                    <option value="Technology" data-i18n="businesses.category.tech">Technology</option>
+                </select>
+                <input type="text" id="editBusinessContact" placeholder="Contact Info" required>
+                <div class="modal-buttons">
+                    <button type="submit" data-i18n="modal.save">Save</button>
+                    <button type="button" onclick="closeEditBusinessModal()" data-i18n="modal.cancel">Cancel</button>
+                </div>
+            </form>
+            <div id="editBusinessMessage" class="form-message"></div>
+        </div>
+    </div>
+
+    <!-- Edit Job Modal -->
+    <div id="editJobModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeEditJobModal()">×</span>
+            <h3 data-i18n="modal.editJob">Edit Job</h3>
+            <form id="editJobForm">
+                <input type="hidden" id="editJobId">
+                <input type="text" id="editJobTitle" placeholder="Job Title" required>
+                <textarea id="editJobDescription" placeholder="Description" required></textarea>
+                <select id="editJobCategory" required>
+                    <option value="" data-i18n="jobs.selectCategory">Select Category</option>
+                    <option value="Full-Time" data-i18n="jobs.category.full">Full-Time</option>
+                    <option value="Part-Time" data-i18n="jobs.category.part">Part-Time</option>
+                    <option value="Freelance" data-i18n="jobs.category.freelance">Freelance</option>
+                </select>
+                <input type="text" id="editJobContact" placeholder="Contact Info" required>
+                <input type="number" id="editJobSalary" placeholder="Salary (e.g., 50000)" step="1000" min="0" required>
+                <div class="modal-buttons">
+                    <button type="submit" data-i18n="modal.save">Save</button>
+                    <button type="button" onclick="closeEditJobModal()" data-i18n="modal.cancel">Cancel</button>
+                </div>
+            </form>
+            <div id="editJobMessage" class="form-message"></div>
+        </div>
+    </div>
+
+    <!-- Profile Modal -->
+   <div id="profileModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeProfileModal()">×</span>
+        <h3 data-i18n="modal.profile">User Profile</h3>
+        <form id="profileForm" autocomplete="off">
+            <input type="text" id="profileName" placeholder="Full Name" required>
+            <button type="submit" data-i18n="modal.save">Save</button>
+        </form>
+        <div id="profileMessage" class="form-message"></div>
+    </div>
+</div>
+
+    <!-- Back to Top Button -->
+    <div id="backToTop" onclick="smoothScroll('hero')" title="Back to Top">↑</div>
+
+    <!-- Language Selector -->
+    <div class="language-selector">
+        <select id="languageSelect" onchange="changeLanguage()">
+            <option value="en">English</option>
+            <option value="es">Español</option>
+            <option value="fr">Français</option>
+                <option value="sw">Kiswahili</option>
+        </select>
+</div>
 
     <script src="script.js"></script>
 </body>
