@@ -99,6 +99,7 @@ nav {
     font-size: 1.5rem;
     color: var(--nav-text);
     z-index: 1000;
+    padding: 5px 10px;
 }
 
 .theme-toggle:hover {
@@ -805,6 +806,7 @@ footer {
     top: 50%;
     transform: translateY(-50%);
     z-index: 1000;
+    padding-left: 86px;
 }
 .language-switcher select {
     padding: 5px;
