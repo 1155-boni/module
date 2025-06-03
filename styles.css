@@ -172,9 +172,6 @@ header.hero {
     justify-content: center;
     text-align: center;
     color: white;
-    background-image: url(ChatGPT\ Image\ May\ 28\,\ 2025\,\ 11_53_14\ AM.png);
-    /* filter: brightness(50%); */
-    
 }
 
 .hero h1 { font-size: 3rem; margin-bottom: 1rem; }
